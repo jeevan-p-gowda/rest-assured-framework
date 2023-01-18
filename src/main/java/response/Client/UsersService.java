@@ -1,9 +1,9 @@
-package response;
+package response.Client;
 
 import io.restassured.response.Response;
 import request.CreatePostRequestBody;
 import request.CreateUserRequestBody;
-import tests.DeletePost;
+import response.*;
 
 public class UsersService {
     public GetListOfUserResponse getListOfUser(){

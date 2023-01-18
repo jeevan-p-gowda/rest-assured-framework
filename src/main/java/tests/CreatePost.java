@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import request.CreatePostRequestBody;
 import response.CreatePostResponse;
-import response.UsersService;
+import response.Client.UsersService;
 
 public class CreatePost {
     private UsersService usersService;

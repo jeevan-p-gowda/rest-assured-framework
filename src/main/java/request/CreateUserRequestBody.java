@@ -44,6 +44,11 @@ public class CreateUserRequestBody {
             this.firstName=firstName;
             return this;
         }
+
+        public Builder getEmail(String email) {
+            this.email=email;
+            return this;
+        }
     }
 }
 

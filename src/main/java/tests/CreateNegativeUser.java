@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import request.CreateUserRequestBody;
 import response.CreateNegativeUserResponse;
-import response.UsersService;
+import response.Client.UsersService;
 
 import static org.testng.Assert.assertEquals;
 

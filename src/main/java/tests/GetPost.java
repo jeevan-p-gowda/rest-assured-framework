@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import request.CreatePostRequestBody;
 import response.CreatePostResponse;
 import response.GetPostResponse;
-import response.UsersService;
+import response.Client.UsersService;
 
 import static org.testng.Assert.assertEquals;
 

@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import response.UsersService;
+import response.Client.UsersService;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -16,7 +16,7 @@ public class GetListOfUserUnderMyAccountResponse {
 
     @Test
     public void shouldGetListOfUsersUnderMyAccount(){
-    //2.Act
+        //2.Act
         response.GetListOfUserUnderMyAccountResponse getListOfUserUnderMyAccountResponse = usersService.getListOfUserUnderMyAccount();
 
         //3.Assert

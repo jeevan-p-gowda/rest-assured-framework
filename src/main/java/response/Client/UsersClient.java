@@ -1,23 +1,27 @@
-package response;
+package response.Client;
 
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import request.CreatePostRequestBody;
 import request.CreateUserRequestBody;
 
 import static io.restassured.RestAssured.given;
 
 public class UsersClient {
+    private static RequestSpecification metaData() {
+        return given()
+                .accept(ContentType.JSON)
+                .contentType(ContentType.JSON)
+                .header("app-id", "63be5a15c4919718ed0d9973");
+    }
     public static Response getListOfUser() {
         Response response =
-         given()
-                 .accept(ContentType.JSON)
-                 .contentType(ContentType.JSON)
-                 .header("app-id", "63be5a15c4919718ed0d9973")
+         metaData()
                  .queryParam("limit",10)
 
         .when()
-                .get("https://dummyapi.io/data/v1/user");
+                .get(new RequestUrl().getUserUrl());
 
         response
                 .then()
@@ -26,14 +30,11 @@ public class UsersClient {
     }
     public static Response getPost(String id) {
         Response response =
-         given()
-                 .accept(ContentType.JSON)
-                 .contentType(ContentType.JSON)
-                 .header("app-id", "63be5a15c4919718ed0d9973")
+         metaData()
                  .pathParam("id",id)
 
         .when()
-                .get("https://dummyapi.io/data/v1/post/{id}");
+                .get(new RequestUrl().getPostByIdUrl());
 
         response
                 .then()
@@ -42,14 +43,11 @@ public class UsersClient {
     }
     public static Response deletePost(String id) {
         Response response =
-         given()
-                 .accept(ContentType.JSON)
-                 .contentType(ContentType.JSON)
-                 .header("app-id", "63be5a15c4919718ed0d9973")
+         metaData()
                  .pathParam("id",id)
 
         .when()
-                .delete("https://dummyapi.io/data/v1/post/{id}");
+                .delete(new RequestUrl().getPostByIdUrl());
 
         response
                 .then()
@@ -58,14 +56,11 @@ public class UsersClient {
     }
     public static Response getListOfUserUnderMyAccount() {
         Response response =
-         given()
-                 .accept(ContentType.JSON)
-                 .contentType(ContentType.JSON)
-                 .header("app-id", "63be5a15c4919718ed0d9973")
+         metaData()
                  .queryParam("created",1)
 
         .when()
-                .get("https://dummyapi.io/data/v1/user");
+                .get(new RequestUrl().getUserUrl());
 
         response
                 .then()
@@ -74,14 +69,11 @@ public class UsersClient {
     }
     public static Response createUser(CreateUserRequestBody requestBody) {
         Response response =
-                given()
-                    .accept(ContentType.JSON)
-                    .contentType(ContentType.JSON)
-                    .header("app-id", "63be5a15c4919718ed0d9973")
+                metaData()
                     .body(requestBody)
 
                 .when()
-                    .post("https://dummyapi.io/data/v1/user/create");
+                    .post(new RequestUrl().getCreateUserUrl());
 
         response
                 .then()
@@ -90,14 +82,11 @@ public class UsersClient {
     }
     public static Response createPost(CreatePostRequestBody requestBody) {
         Response response =
-                given()
-                    .accept(ContentType.JSON)
-                    .contentType(ContentType.JSON)
-                    .header("app-id", "63be5a15c4919718ed0d9973")
+                metaData()
                     .body(requestBody)
 
                 .when()
-                    .post("https://dummyapi.io/data/v1/post/create");
+                    .post(new RequestUrl().getCreatePostUrl());
 
         response
                 .then()

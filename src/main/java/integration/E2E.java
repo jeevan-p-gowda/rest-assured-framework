@@ -7,7 +7,7 @@ import request.CreatePostRequestBody;
 import response.CreatePostResponse;
 import response.DeletePostResponse;
 import response.GetPostNegativeResponse;
-import response.UsersService;
+import response.Client.UsersService;
 
 public class E2E {
     private UsersService usersService;
